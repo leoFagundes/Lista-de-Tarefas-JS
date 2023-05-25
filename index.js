@@ -39,7 +39,7 @@ tarefas.forEach(function(tarefa) {
 
     divDescricao.appendChild(descricao);
 
-    container.appendChild(divTarefa);
+    container.prepend(divTarefa);
 
     // Adicionar o evento de clique ao ícone da lixeira
     imgLixeira.addEventListener('click', function () {
