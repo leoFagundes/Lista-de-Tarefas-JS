@@ -135,6 +135,12 @@ main {
     32px 33px 78px rgba(93, 212, 202, 0.28);
 }
 
+@media screen and (max-width: 675px) {
+    .container {
+        justify-content: center;
+    }
+}
+
 .tarefa {
     display: flex;
     flex-direction: column;
