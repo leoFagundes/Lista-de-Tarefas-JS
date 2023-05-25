@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <nav>
+        <h1 class="nav-title">LISTA DE TEREFAS</h1>
+        <div class="menu">
+            <p><a class="menu-item" href="./index.html">Home</a></p>
+            <p><a class="menu-item" href="./add_tarefa.html">Adicionar Tarefa</a></p>
+        </div>
+    </nav>
+    <main>
+        <h1 class="title">Minhas Tarefas</h1>
+        <section class="container">
+            <!--
+            <div class="tarefa">
+                <div class="sub-tarefa">
+                    <h1 align="center">Teste</h1>
+                    <img class="icon" src="./style/images/lata-de-lixo.png">
+                </div>
+                <div class="descricao"><div></div></div>
+            </div>
+            -->
+        </section>
+    </main>
+</body>
+<script src="./main.js"></script>
+<script>
+    // Verificar se existem tarefas salvas
+    var tarefasSalvas = localStorage.getItem('tarefas');
+    var tarefas = tarefasSalvas ? JSON.parse(tarefasSalvas) : [];
+  
+    // Adicionar as tarefas ao DOM
+    var container = document.querySelector('.container');
+    tarefas.forEach(function(tarefa) {
+        var divTarefa = document.createElement('div');
+        divTarefa.classList.add('tarefa');
+
+        var divDescricao = document.createElement('div');
+        divDescricao.classList.add('descricao');
+
+        var divSubTarefa = document.createElement('div');
+        divSubTarefa.classList.add('sub-tarefa');
+
+        var titulo = document.createElement('h1');
+        titulo.setAttribute('align', 'center');
+        titulo.textContent = tarefa.titulo;
+
+        var imgLixeira = document.createElement('img');
+        imgLixeira.classList.add('icon');
+        imgLixeira.setAttribute('src', './style/images/lata-de-lixo.png');
+
+        /*
+        var descricao = document.createElement('p');
+        descricao.textContent = tarefa.descricao;
+        */
+
+        var descricao = document.createElement('div');
+        descricao.classList.add('descricao');
+        descricao.innerHTML = tarefa.descricao.replace(/\n/g, '<br>');
+
+        divSubTarefa.appendChild(titulo);
+        divSubTarefa.appendChild(imgLixeira);
+
+        divTarefa.appendChild(divSubTarefa);
+        divTarefa.appendChild(divDescricao);
+
+        divDescricao.appendChild(descricao);
+
+        container.appendChild(divTarefa);
+
+        // Adicionar o evento de clique ao ícone da lixeira
+        imgLixeira.addEventListener('click', function () {
+            // Remover a tarefa do DOM
+        divTarefa.remove();
+
+        // Remover a tarefa do array de tarefas
+        var index = tarefas.indexOf(tarefa);
+        tarefas.splice(index, 1);
+
+        // Atualizar o valor do localStorage com as tarefas atualizadas
+        localStorage.setItem('tarefas', JSON.stringify(tarefas));
+        });
+    });
+</script>
+</html>

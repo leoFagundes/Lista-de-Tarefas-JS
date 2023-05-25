@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap'); /*font-family: 'Fredoka One', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /*font-family: 'Pacifico', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*font-family: 'Dancing Script', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');/*nav-title -> font-family: 'Bungee', cursive;*/
+
+:root {
+    --title: #000000;
+    --contorno: #89b6c2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+/*Nav Bar*/
+nav {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(231, 231, 231, 0.664);
+    z-index: 9999;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 23.5px;
+    text-decoration: overline;
+}
+
+.nav-title {
+    font-family: 'Bungee', cursive;
+    font-size: 30px;
+    color: var(--title);
+    text-shadow: 2px 2px 4px rgba(93, 212, 202, 0.568);
+    width: 60%;
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 580px) {
+    nav {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+
+    .nav-title {
+        width: 300px;
+    }
+}
+
+.menu {
+    display: flex;
+    width: 40%;
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 874px) {
+    .menu {
+        flex-wrap: wrap;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .menu {
+        width: 300px;
+    }
+}
+
+.menu-item {
+    font-family: 'Pacifico', cursive;
+    margin-left: 30px;
+    font-size:25px;
+    color: var(--title);
+    text-shadow: 2px 2px 4px rgba(93, 212, 202, 0.568);
+}
+
+/*Main*/
+
+main {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    background: linear-gradient(to bottom right, #f3feffc4, #fcf8f8c7);
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 580px) {
+    main {
+        margin-top: 200px;
+    }
+
+}
+
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(93, 212, 202, 0.568);
+}
+
+.container {
+    display: flex;
+    padding: 30px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    height: auto;
+    width: 90%;
+    min-width: 300px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 60px;
+    border: 2px solid #000000;
+    box-shadow:
+    -0.5px -0.5px 5.2px rgba(93, 212, 202, 0.24),
+    2.6px 2.6px 17.4px rgba(93, 212, 202, 0.281),
+    32px 33px 78px rgba(93, 212, 202, 0.28);
+}
+
+.tarefa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    height: auto;
+    min-height: 400px;
+    width: 290px;
+    min-width: 290px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    background-image: linear-gradient(to bottom right, rgb(219, 252, 249), rgb(219, 240, 248));
+}
+
+.tarefa h2 {
+    font-family: 'Fredoka One', cursive;
+}
+
+.descricao div {
+    font-family: 'Pacifico', cursive;
+    word-wrap: break-word;
+    font-size: 15px;
+}
+
+.descricao {
+    width: 80%;
+}
+
+.icon {
+    object-fit: cover;
+    height: 30px;
+}
+
+@-webkit-keyframes rotate-90-ccw {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(-30deg);
+              transform: rotate(-30deg);
+    }
+  }
+  @keyframes rotate-90-ccw {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(-30deg);
+              transform: rotate(-30deg);
+    }
+  }
+  
+.icon:hover {
+    height: 29px;
+    -webkit-animation: rotate-90-ccw 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: rotate-90-ccw 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;    
+}
+
+.sub-tarefa {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.sub-tarefa h1 {
+    width: 90%;
+}
+
+/* add_tarefa */
+
+#formTarefa {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+textarea {
+    width: 400px;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+
+button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#contador-titulo,
+#contador-descricao {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #888;
+}
+
+.descricao-textarea {
+    height: 300px;
+}

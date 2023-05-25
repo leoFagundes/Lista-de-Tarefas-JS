@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adcionar Tarefa</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <nav>
+        <h1 class="nav-title">LISTA DE TEREFAS</h1>
+        <div class="menu">
+            <p><a class="menu-item" href="./index.html">Home</a></p>
+            <p><a class="menu-item" href="./add_tarefa.html">Adicionar Tarefa</a></p>
+        </div>
+    </nav>
+    <main>
+        <section style="margin-top: 70px;" class="container">
+            <form id="formTarefa">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" required>
+                <span id="contador-titulo"></span>
+                
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" class="descricao-textarea" required></textarea>
+                <span id="contador-descricao"></span>
+                
+                <button type="submit">Salvar</button>
+            </form>
+        </section>
+    </main>
+</body>
+<script src="./main.js"></script>
+<script>
+    var tituloInput = document.getElementById('titulo');
+    var contadorTitulo = document.getElementById('contador-titulo');
+
+    tituloInput.addEventListener('input', function() {
+    var caracteresDigitados = tituloInput.value.length;
+    var caracteresRestantes = MAX_CARACTERES_TITULO - caracteresDigitados;
+    contadorTitulo.textContent = caracteresRestantes + ' caracteres restantes';
+    });
+
+    var descricaoInput = document.getElementById('descricao');
+    var contadorDescricao = document.getElementById('contador-descricao');
+
+    descricaoInput.addEventListener('input', function() {
+    var caracteresDigitados = descricaoInput.value.length;
+    var caracteresRestantes = MAX_CARACTERES_DESCRICAO - caracteresDigitados;
+    contadorDescricao.textContent = caracteresRestantes + ' caracteres restantes';
+    });
+
+    var descricaoInput = document.getElementById('descricao');
+
+    descricaoInput.addEventListener('input', function(event) {
+    var key = event.inputType;
+
+    if (key === 'insertParagraph') {
+        descricaoInput.value = descricaoInput.value.replace(/\n$/, '') + '<br>';
+    }
+    });
+</script>
+</html>
