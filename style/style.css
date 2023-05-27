@@ -139,6 +139,11 @@ main {
     .container {
         justify-content: center;
     }
+
+    a:hover {
+    font-size: 25px;
+    text-decoration: overline;
+}
 }
 
 .tarefa {
@@ -256,4 +261,12 @@ button[type="submit"] {
 
 .descricao-textarea {
     height: 300px;
+}
+
+@media screen and (max-width: 450px) {
+
+    #titulo, #descricao {
+        width: 300px;
+    }
+
 }
